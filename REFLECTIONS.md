@@ -56,3 +56,30 @@ A viewer would more accurately identify a bus arriving precisely at the schedule
 > would a monthly schedule for the *real-time* delay snapshots make the whole
 > real-time picture useless? Answer both halves — the mismatch runs in both
 > directions.
+
+I don't see a "real answer" to compare my first guess to, but updating the the real-time data every month would completely kill the real-time aspect of it. A lot of information would be lost and we would not be able to retrieve relevant data from a monthly updated delay snapshots.
+Information such as day-to-day variations, rush-hours would be lost. Also, the dashboard would be outdated most of the time, making it useless.
+
+### Step 15 — Sanity-check the numbers against reality
+> **Reflection 7.** Pick one route currently showing a large delay on your
+> dashboard. Compare it against
+> [SETRAM's own live departure information](https://www.setram.fr/) or plain common
+> sense (is there a known local event, roadwork, rush hour?). Did the number match
+> what you'd expect? If not, what's your best guess for the discrepancy — a real
+> disruption, a data artifact, or something else? This is the same "does this number
+> make sense" habit this whole course keeps returning to; write what you actually
+> found, not what you expected to find.
+
+Route 5 is currently showing an average delay of 86.6s. After checking the official setram website, I noticed that there were detours due to roadworks, so I guessed this was the cause of the delays. Same for Route 28 showing 71.5s of average delay.
+
+## On your own: turn the supply reference into a supply-vs-demand answer
+> **Reflection 8.** Before writing any code: you're about to use commune
+> **population** as a stand-in for real transport **demand**, because real ridership
+> data doesn't exist as open data. Name one concrete, realistic way a commune could
+> have *low* population but genuinely *high* transport demand (or the reverse) — so
+> you go into this exercise already knowing the proxy's failure mode, not just its
+> formula.
+
+A commune can have low population but high transport demand if there are universities, an industrial zone or a dense business area in it: few people actually live there, but many people travel there every day to study or work, so the demand comes from commuters, not residents. A shopping centre, a hospital or a big event venue (in Le Mans, the circuit during the 24 Hours) has the same effect.
+The reverse also exists: a commune with a high population can have a low transport demand, for example a residential suburb where most households own cars, or with a large share of elderly or remote-working residents who rarely commute.
+Population only counts where people sleep, not where they need to go, so this proxy will underestimate the demand of job/study hubs and overestimate the demand of "dormitory" communes.

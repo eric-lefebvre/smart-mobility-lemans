@@ -1,0 +1,1 @@
+link to dashboard: [dashboard](https://eric-lefebvre.github.io/smart-mobility-lemans/)

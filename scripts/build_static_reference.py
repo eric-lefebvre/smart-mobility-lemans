@@ -1,4 +1,4 @@
-import csv, io, math, os, zipfile
+import csv, io, json, math, os, zipfile
 import requests
 import pandas as pd
 
@@ -34,6 +34,39 @@ def nearest_commune(lat, lon, communes):
         if best_dist is None or d < best_dist:
             best_dist, best_name = d, c["commune"]
     return best_name
+
+def supply_vs_population(freq, communes_df):
+    # Population is only a proxy for demand (see Reflection 8): it counts where
+    # people live, not where they travel to.
+    per_commune = freq.groupby("nearest_commune").agg(
+        n_stops=("stop_id", "size"),
+        daily_stop_visits=("daily_trip_count", "sum"),
+        busiest_stop_visits=("daily_trip_count", "max"),
+    ).reset_index().rename(columns={"nearest_commune": "commune"})
+    busiest = (freq.sort_values("daily_trip_count", ascending=False)
+                   .drop_duplicates("nearest_commune")
+                   [["nearest_commune", "stop_name"]]
+                   .rename(columns={"nearest_commune": "commune", "stop_name": "busiest_stop"}))
+
+    # Left join from communes so a commune with no stop at all still shows up (with 0).
+    supply = communes_df[["commune", "population"]].merge(per_commune, on="commune", how="left")
+    supply = supply.merge(busiest, on="commune", how="left")
+    supply[["n_stops", "daily_stop_visits", "busiest_stop_visits"]] = (
+        supply[["n_stops", "daily_stop_visits", "busiest_stop_visits"]].fillna(0).astype(int)
+    )
+    supply["busiest_stop"] = supply["busiest_stop"].fillna("")
+
+    supply["stop_visits_per_1000"] = (supply["daily_stop_visits"] / supply["population"] * 1000).round(1)
+    supply["stops_per_1000"] = (supply["n_stops"] / supply["population"] * 1000).round(2)
+    # Share of the commune's visits made at its single busiest stop: a high value
+    # means one depot/interchange may be inflating the metric.
+    supply["busiest_stop_share"] = (
+        supply["busiest_stop_visits"] / supply["daily_stop_visits"].where(supply["daily_stop_visits"] > 0)
+    ).fillna(0).round(2)
+
+    supply = supply.sort_values("stop_visits_per_1000", ascending=False).reset_index(drop=True)
+    supply.insert(0, "rank", supply.index + 1)
+    return supply
 
 def main():
     communes_df = pd.read_csv("data/reference/communes.csv")
@@ -90,6 +123,18 @@ def main():
     print(f"Wrote data/gtfs_static/routes.csv ({len(routes)} rows)")
     print("Top 5 busiest stops:")
     print(freq[["stop_name", "daily_trip_count", "nearest_commune"]].head(5).to_string(index=False))
+
+    supply = supply_vs_population(freq, communes_df)
+    supply.to_csv("data/gtfs_static/supply_vs_population.csv", index=False)
+    os.makedirs("docs/data", exist_ok=True)
+    with open("docs/data/supply_vs_population.json", "w", encoding="utf-8") as f:
+        json.dump({
+            "metric": "Scheduled stop-visits per 1,000 residents on a representative weekday",
+            "service_id": service_id,
+            "communes": supply.to_dict("records"),
+        }, f, ensure_ascii=False, indent=2)
+    print(f"Wrote data/gtfs_static/supply_vs_population.csv and docs/data/supply_vs_population.json ({len(supply)} communes)")
+    print(supply[["rank", "commune", "population", "n_stops", "stop_visits_per_1000", "busiest_stop_share"]].to_string(index=False))
 
 if __name__ == "__main__":
     main()
