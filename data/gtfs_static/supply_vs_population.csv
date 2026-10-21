@@ -1,0 +1,21 @@
+rank,commune,population,n_stops,daily_stop_visits,busiest_stop_visits,busiest_stop,stop_visits_per_1000,stops_per_1000,busiest_stop_share
+1,La-Chapelle-Saint-Aubin,2319,53,2343,82,Les Verts,1010.3,22.85,0.03
+2,Coulaines,8226,105,6267,111,Europe,761.9,12.76,0.02
+3,Rouillon,2666,41,1906,188,St-Joseph,714.9,15.38,0.1
+4,Allonnes,10846,69,4017,160,Stade Georges Garnier,370.4,6.36,0.04
+5,Arnage,5548,34,1638,193,Oasis-Centre des Expositions,295.2,6.13,0.12
+6,Yvre-l-Eveque,4269,22,750,51,Le Luard,175.7,5.15,0.07
+7,Saint-Saturnin,2864,21,490,57,Cinémas CGR,171.1,7.33,0.12
+8,La-Milesse,2650,15,425,86,Four à Chanvre,160.4,5.66,0.2
+9,Sarge-les-le-Mans,3941,15,630,42,Cerisiers,159.9,3.81,0.07
+10,Le Mans,148876,329,22900,250,Gares,153.8,2.21,0.01
+11,Ruaudin,3542,22,536,53,Guetteloup,151.3,6.21,0.1
+12,Champagne,3728,19,425,26,Léopold Gouloumès,114.0,5.1,0.06
+13,Mulsanne,5352,18,525,42,Belvédères,98.1,3.36,0.08
+14,Aigne,1724,6,138,23,Buchetière,80.0,3.48,0.17
+15,Pruille-le-Chetif,1357,8,88,11,La Grande Salle,64.8,5.9,0.12
+16,Fay,770,3,44,22,Église Fay,57.1,3.9,0.5
+17,Trange,1678,6,87,15,Mairie Trangé,51.8,3.58,0.17
+18,Chaufour-Notre-Dame,1187,3,58,29,La Denisière,48.9,2.53,0.5
+19,Saint-Georges-du-Bois,2308,7,96,24,Centre Commercial,41.6,3.03,0.25
+20,Fatines,937,2,38,25,Place de l'Église,40.6,2.13,0.66
