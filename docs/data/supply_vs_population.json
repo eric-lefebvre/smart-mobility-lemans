@@ -9,7 +9,7 @@
       "n_stops": 53,
       "daily_stop_visits": 2343,
       "busiest_stop_visits": 82,
-      "busiest_stop": "Les Verts",
+      "busiest_stop": "Émile Delahaye",
       "stop_visits_per_1000": 1010.3,
       "stops_per_1000": 22.85,
       "busiest_stop_share": 0.03
@@ -21,7 +21,7 @@
       "n_stops": 105,
       "daily_stop_visits": 6267,
       "busiest_stop_visits": 111,
-      "busiest_stop": "Europe",
+      "busiest_stop": "La Paix",
       "stop_visits_per_1000": 761.9,
       "stops_per_1000": 12.76,
       "busiest_stop_share": 0.02
@@ -45,7 +45,7 @@
       "n_stops": 69,
       "daily_stop_visits": 4017,
       "busiest_stop_visits": 160,
-      "busiest_stop": "Stade Georges Garnier",
+      "busiest_stop": "Lycée André Malraux",
       "stop_visits_per_1000": 370.4,
       "stops_per_1000": 6.36,
       "busiest_stop_share": 0.04
@@ -69,7 +69,7 @@
       "n_stops": 22,
       "daily_stop_visits": 750,
       "busiest_stop_visits": 51,
-      "busiest_stop": "Le Luard",
+      "busiest_stop": "Avenue du Mans",
       "stop_visits_per_1000": 175.7,
       "stops_per_1000": 5.15,
       "busiest_stop_share": 0.07
@@ -105,7 +105,7 @@
       "n_stops": 15,
       "daily_stop_visits": 630,
       "busiest_stop_visits": 42,
-      "busiest_stop": "Cerisiers",
+      "busiest_stop": "Bignon",
       "stop_visits_per_1000": 159.9,
       "stops_per_1000": 3.81,
       "busiest_stop_share": 0.07
@@ -141,7 +141,7 @@
       "n_stops": 19,
       "daily_stop_visits": 425,
       "busiest_stop_visits": 26,
-      "busiest_stop": "Léopold Gouloumès",
+      "busiest_stop": "Auvours",
       "stop_visits_per_1000": 114.0,
       "stops_per_1000": 5.1,
       "busiest_stop_share": 0.06
@@ -153,7 +153,7 @@
       "n_stops": 18,
       "daily_stop_visits": 525,
       "busiest_stop_visits": 42,
-      "busiest_stop": "Belvédères",
+      "busiest_stop": "Stade Mulsanne",
       "stop_visits_per_1000": 98.1,
       "stops_per_1000": 3.36,
       "busiest_stop_share": 0.08
@@ -165,7 +165,7 @@
       "n_stops": 6,
       "daily_stop_visits": 138,
       "busiest_stop_visits": 23,
-      "busiest_stop": "Buchetière",
+      "busiest_stop": "Mairie Aigné",
       "stop_visits_per_1000": 80.0,
       "stops_per_1000": 3.48,
       "busiest_stop_share": 0.17
@@ -177,7 +177,7 @@
       "n_stops": 8,
       "daily_stop_visits": 88,
       "busiest_stop_visits": 11,
-      "busiest_stop": "La Grande Salle",
+      "busiest_stop": "Stade Asnillé",
       "stop_visits_per_1000": 64.8,
       "stops_per_1000": 5.9,
       "busiest_stop_share": 0.12
@@ -201,7 +201,7 @@
       "n_stops": 6,
       "daily_stop_visits": 87,
       "busiest_stop_visits": 15,
-      "busiest_stop": "Mairie Trangé",
+      "busiest_stop": "Maisons Rouges",
       "stop_visits_per_1000": 51.8,
       "stops_per_1000": 3.58,
       "busiest_stop_share": 0.17
