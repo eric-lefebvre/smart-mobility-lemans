@@ -89,5 +89,8 @@ The inverse also exists. Some communes have high population but most residents o
 > commune, not just the formula.
 
 My chosen supply metric is a score:
-- 50% is (planned stops per day) / 1000 inhabitants
-- 50% is (bus stops) / 1000 inhabitants
+- 50% is (planned stops per day / 1000 inhabitants) / (most planned stops per day / 1000)
+- 50% is (bus stops / 1000 inhabitants) / (most bus stops / 1000)
+
+It is hard to represent both coverage and frequency of stops in just a single metric. My supply metric is not perfect because a commune with a single very busy stop might have the same score as a commune with many not busy stops but it still gives relevant information about the quality of the network.
+Le Mans' ranking looks odd because it should be close to the top of the rankings but its high population drags it down to the 13th place.
