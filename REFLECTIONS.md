@@ -80,6 +80,14 @@ Route 5 is currently showing an average delay of 86.6s. After checking the offic
 > you go into this exercise already knowing the proxy's failure mode, not just its
 > formula.
 
-A commune can have low population but high transport demand if there are universities, an industrial zone or a dense business area in it: few people actually live there, but many people travel there every day to study or work, so the demand comes from commuters, not residents. A shopping centre, a hospital or a big event venue (in Le Mans, the circuit during the 24 Hours) has the same effect.
-The reverse also exists: a commune with a high population can have a low transport demand, for example a residential suburb where most households own cars, or with a large share of elderly or remote-working residents who rarely commute.
-Population only counts where people sleep, not where they need to go, so this proxy will underestimate the demand of job/study hubs and overestimate the demand of "dormitory" communes.
+A commune can have low population but high transport demand if there are universities, an industrial zone or a dense business area in it. Only few people actually live there, but many people travel there every day to study or work.
+The inverse also exists. Some communes have high population but most residents own cars, or do not move a lost to the city, meaning they don't use public transports often.
+
+> **Reflection 9.** State your chosen supply metric in one sentence. Then, using
+> your own actual output (not a hypothetical), name one commune where the ranking
+> looks wrong to you, and explain why — using what you actually know about that
+> commune, not just the formula.
+
+My chosen supply metric is a score:
+- 50% is (planned stops per day) / 1000 inhabitants
+- 50% is (bus stops) / 1000 inhabitants

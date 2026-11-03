@@ -17,9 +17,7 @@
   .table-wrap { overflow-x: auto; }
   #supplyTable { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
   #supplyTable th, #supplyTable td { padding: 0.35rem 0.6rem; border-bottom: 1px solid #ddd; text-align: right; }
-  #supplyTable th:nth-child(2), #supplyTable td:nth-child(2),
-  #supplyTable th:last-child, #supplyTable td:last-child { text-align: left; }
-  #supplyTable tr.warn td { background: #faf3e8; }
+  #supplyTable th:nth-child(2), #supplyTable td:nth-child(2) { text-align: left; }
   .note { color: #666; font-size: 0.85rem; }
 </style>
 </head>
@@ -32,9 +30,9 @@
   <p id="updated"></p>
 
   <h2>Transport supply vs. population, by commune</h2>
-  <p class="note">Scheduled stop-visits per 1,000 residents on a representative weekday.
-    Population is only a proxy for demand: it counts where people live, not where they work or study.
-    Highlighted rows get more than half of their visits from a single stop (depot or interchange?).</p>
+  <p class="note">Service score /100 on a representative weekday: 50% frequency (scheduled stop-visits per 1,000 residents)
+    + 50% coverage (stops per 1,000 residents), each scaled so the best commune gets the full 50 points.
+    Population is only a proxy for demand: it counts where people live, not where they work or study.</p>
   <div class="table-wrap" id="supply">Loading...</div>
 
 <script>
@@ -124,22 +122,21 @@ fetch('data/supply_vs_population.json')
   .then(r => r.json())
   .then(data => {
     const rows = data.communes.map(c => `
-      <tr class="${c.busiest_stop_share > 0.5 ? 'warn' : ''}">
+      <tr>
         <td>${c.rank}</td>
         <td>${c.commune}</td>
         <td>${c.population.toLocaleString('en')}</td>
         <td>${c.n_stops}</td>
         <td>${c.daily_stop_visits.toLocaleString('en')}</td>
-        <td><strong>${c.stop_visits_per_1000}</strong></td>
+        <td>${c.stop_visits_per_1000}</td>
         <td>${c.stops_per_1000}</td>
-        <td>${Math.round(c.busiest_stop_share * 100)}%</td>
-        <td>${c.busiest_stop}</td>
+        <td><strong>${c.service_score}</strong></td>
       </tr>`).join('');
     document.getElementById('supply').innerHTML = `
       <table id="supplyTable">
         <thead><tr>
           <th>#</th><th>Commune</th><th>Population</th><th>Stops</th><th>Daily stop-visits</th>
-          <th>Visits / 1,000 res.</th><th>Stops / 1,000 res.</th><th>Busiest stop share</th><th>Busiest stop</th>
+          <th>Visits / 1,000 res.</th><th>Stops / 1,000 res.</th><th>Service score /100</th>
         </tr></thead>
         <tbody>${rows}</tbody>
       </table>`;
