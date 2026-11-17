@@ -862,3 +862,4 @@ snapshot_ts,route_id,n_trips_observed,n_stop_updates,n_skipped,avg_delay_s,max_d
 1794846736,T1,35,792,0,9.8,377
 1794846736,T2,25,432,10,-5.5,331
 1794846736,T3,26,364,0,-8.3,157
+1794875268,T1,1,24,0,-69.3,12
